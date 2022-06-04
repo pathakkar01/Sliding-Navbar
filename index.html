@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;1,500&family=Noto+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-bar">
+        <!-- input that will be used to slide the navbar in or out -->
+        <input type="checkbox" id="menu" />
+        <aside id="menu-controller">
+          <!-- label of input which will be used as menu icon  -->
+          <label for="menu" class="icon"></label>
+        </aside>
+        <!-- div that will be used for blur back-ground -->
+        <div id="blur-bg"></div>
+        <nav class="nav-section" id="nav-content">
+          <!-- label of input which will be used as menu close icon  -->
+          <label for="menu" class="icon"></label>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>

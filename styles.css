@@ -1,0 +1,114 @@
+/* basic style for reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Epilogue", sans-serif;
+  background-color: hsl(0, 0%, 98%);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+}
+/* nnavbar -design */
+.nav-bar {
+  display: flex;
+  justify-content: flex-start;
+}
+/* make display none, to get rid of checkbox */
+input {
+  display: none;
+}
+
+/* set backgound image of label to menu-icon  */
+label {
+  width: 40px;
+  /* margin: 0 auto; */
+  background-position: center;
+  height: 40px;
+  display: block;
+  background-image: url("./images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* set bacgound image of label that is nav-section to close icon */
+.nav-section label {
+  background-image: url("./images/icon-close-menu.svg");
+}
+
+/* make position of nav-section to fixed and align it in top-left corner, set 
+it visibility hidden and 
+translate it to of the screen to -300px */
+.nav-section {
+  visibility: hidden;
+  transform: translate(-300px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 100vh;
+  padding: 50px;
+  z-index: 10;
+  transition: all 1s 0s;
+}
+/* add transition with duration of 1s */
+#nav-content {
+  transition: all 1s 0s;
+}
+
+/* basic flexbox style for ul of nav-section */
+.nav-section ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.nav-section li {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+#menu-controller {
+  margin: 40px;
+}
+
+/* give height and width 100% and 100vh respectively and and translate it off screen and give transition effect with with bit as it more near to screen that content of nav-content, so it come on screen before the nav-content*/
+#blur-bg {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-120vw);
+  transition: all 1s 0.2s, background-color 0.2s;
+  background-color: rgba(12, 12, 12, 0.6);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Now when check-box is checked, first we will traslate menu-icon to off the screen */
+input#menu:checked ~ #menu-controller {
+  transform: translate(-110vw);
+}
+/* then we will make visibily of blur bg to visible and traslate to 0 to make on screen and also update its trasition and give it's dalay to 0 and so that when we again click checkbox so that it will go off screen after the nav-content */
+input#menu:checked ~ #blur-bg {
+  visibility: visible;
+  transform: translate(0);
+  opacity: 1;
+  transition: transform 1s 0s;
+}
+
+/* and also make nav-content visibility to visible and   and translate it on screen and update transition property and give some delay so that it will start translating off screen after the blur back-ground.*/
+input#menu:checked ~ #nav-content {
+  visibility: visible;
+  transform: translate(0);
+  transition: transform 0.5s 0.4s;
+}
